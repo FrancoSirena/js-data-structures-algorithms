@@ -1,3 +1,22 @@
+function breadthFirstSearch(tree, rootNode, searchValue) {
+	const queue = [];
+	queue.push(rootNode);
+	while (queue.length > 0) {
+		let currentNode = queue[0];
+		// if currentNode has a left child node, add it to the queue.
+		if (currentNode.left !== null) {
+			queue.push(tree[currentNode.left]);
+		}
+
+		// if currentNode has a right child node, add it to the queue.
+		if (currentNode.right !== null) {
+			queue.push(tree[currentNode.right]);
+		}
+		// remove the currentNode from the queue.
+		queue.shift();	
+    	}
+}
+
 function createBinaryNode(key) {
 	return {
 		key,
